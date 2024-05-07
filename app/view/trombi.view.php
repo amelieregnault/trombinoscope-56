@@ -1,6 +1,20 @@
+<?php if (isset($nbPages) && $nbPages > 1) : ?>
+  <ul>
+    <?php for ($i = 1; $i <= $nbPages; $i++) : ?>
+      <li>
+        <?php if ($numPage === $i) : ?>
+          <?= $i ?>
+        <?php else : ?>
+          <a href="trombinoscope.php?page=<?= $i ?>"><?= $i ?></a>
+        <?php endif ?>
+      </li>
+    <?php endfor ?>
+  </ul>
+<?php endif ?>
+
 <?php foreach ($students as $aStudent): ?>
     <div class="carte">
-      <a href="fiche.html">
+      <a href="fiche.php?num=<?= $aStudent['id'] ?>">
         <?php 
           if (isset($aStudent['photo'])) {
             $photo = 'groupe' . $aStudent['group'] . '/small/' . $aStudent['photo'];
