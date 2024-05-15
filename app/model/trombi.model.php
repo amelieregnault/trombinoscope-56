@@ -35,9 +35,9 @@ function getStudentsByPage(PDO $pdo, int $numPage): array
 
 function getNbPages(PDO $pdo): int
 {
+    $nbStudentsPerPage = 16;
     $sql = "SELECT count(*) FROM students";
     $stmt = $pdo->query($sql);
     $nbStudents = $stmt->fetchColumn();
-    $nbStudentsPerPage = 16;
     return ceil($nbStudents / $nbStudentsPerPage);
 }
